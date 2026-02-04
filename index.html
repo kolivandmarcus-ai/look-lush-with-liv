@@ -7,37 +7,37 @@
 
 <style>
 :root{
-  --tan-dark:#d4a16d;
-  --tan-light:#fff2e6;
-  --accent:#c7925f;
-  --dark:#2b1b10;
-  --muted:#7a5a45;
+  --tan-light: #fff2e6;
+  --accent: #c7925f;
+  --dark: #2b1b10;
+  --muted: #7a5a45;
 }
 
 /* Reset & base */
 *{
-  box-sizing:border-box;
-  margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
 }
 
-body{
-  background:linear-gradient(180deg,var(--tan-dark),var(--tan-light));
-  color:var(--dark);
-  line-height:1.6;
+body {
+  background-color: var(--tan-light); /* fallback */
+  background: linear-gradient(to bottom, #fff2e6 0%, #ffffff 100%);
+  color: var(--dark);
+  line-height: 1.6;
 }
 
 /* Hero Header */
 header{
-  max-width:1100px;
-  margin:auto;
-  padding:120px 24px;
-  text-align:center;
+  max-width: 1100px;
+  margin: auto;
+  padding: 120px 24px;
+  text-align: center;
 }
 
 h1{
-  font-size:3rem;
-  font-weight:700;
+  font-size: 3rem;
+  font-weight: 700;
   background: linear-gradient(90deg, #d4a16d, #e3b48a, #c7925f, #d4a16d);
   background-size: 300% 100%;
   -webkit-background-clip: text;
@@ -51,116 +51,149 @@ h1{
 }
 
 header p{
-  max-width:760px;
-  margin:24px auto 46px;
-  color:var(--muted);
-  font-size:1.15rem;
+  max-width: 760px;
+  margin: 24px auto 46px;
+  color: var(--muted);
+  font-size: 1.15rem;
 }
 
 .cta{
-  display:inline-block;
-  padding:16px 44px;
-  background:linear-gradient(135deg,var(--accent),var(--tan-dark));
-  color:white;
-  text-decoration:none;
-  border-radius:999px;
-  transition:.35s ease;
+  display: inline-block;
+  padding: 16px 44px;
+  background: linear-gradient(135deg,var(--accent),#d4a16d);
+  color: white;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: .35s ease;
 }
 
 .cta:hover{
-  transform:translateY(-6px);
-  box-shadow:0 14px 30px rgba(0,0,0,.2);
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0,0,0,.2);
 }
 
 /* Sections */
 section{
-  max-width:1100px;
-  margin:auto;
-  padding:90px 24px;
+  max-width: 1100px;
+  margin: auto;
+  padding: 90px 24px;
 }
 
 .grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  gap: 50px;
 }
 
 .card{
-  background:white;
-  padding:36px;
-  border-radius:24px;
-  box-shadow:0 12px 28px rgba(0,0,0,.07);
-  transition:.35s ease;
+  background: white;
+  padding: 36px;
+  border-radius: 24px;
+  box-shadow: 0 12px 28px rgba(0,0,0,.07);
+  transition: .35s ease;
 }
 
 .card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 20px 40px rgba(0,0,0,.13);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,.13);
 }
 
 h2{
-  font-size:1.9rem;
-  margin-bottom:18px;
-  font-weight:500;
+  font-size: 1.9rem;
+  margin-bottom: 18px;
+  font-weight: 500;
 }
 
 p{
-  color:var(--muted);
+  color: var(--muted);
 }
 
 ul{
-  margin-top:18px;
-  padding-left:18px;
+  margin-top: 18px;
+  padding-left: 18px;
 }
 
 li{
-  margin-bottom:12px;
-  color:var(--muted);
+  margin-bottom: 12px;
+  color: var(--muted);
 }
 
 /* RESULTS GRID */
 .results-grid{
-  margin-top:46px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:24px;
+  margin-top: 46px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 24px;
 }
 
 .results-grid img{
-  width:100%;
-  height:260px;
-  object-fit:cover;
-  border-radius:22px;
-  box-shadow:0 12px 22px rgba(0,0,0,.08);
-  transition:.4s ease;
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 22px;
+  box-shadow: 0 12px 22px rgba(0,0,0,.08);
+  transition: .4s ease;
+  cursor: pointer;
 }
 
 .results-grid img:hover{
-  transform:translateY(-8px) scale(1.03);
-  box-shadow:0 20px 40px rgba(0,0,0,.15);
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(0,0,0,.15);
+}
+
+/* Lightbox for reviews */
+#lightbox {
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.85);
+  display:none;
+  justify-content: center;
+  align-items: center;
+  z-index:1000;
+}
+
+#lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+#lightbox-close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 3rem;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 1001;
 }
 
 /* Footer */
 footer{
-  text-align:center;
-  padding:110px 24px;
-  background:white;
+  text-align: center;
+  padding: 110px 24px;
+  background: white;
 }
 
 footer a{
-  display:inline-block;
-  margin-top:26px;
-  padding:16px 44px;
-  background:linear-gradient(135deg,var(--accent),var(--tan-dark));
-  color:white;
-  text-decoration:none;
-  border-radius:999px;
-  transition:.35s ease;
+  display: inline-block;
+  margin-top: 26px;
+  padding: 16px 44px;
+  background: linear-gradient(135deg,var(--accent),#d4a16d);
+  color: white;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: .35s ease;
 }
 
 footer a:hover{
-  transform:translateY(-6px);
-  box-shadow:0 14px 30px rgba(0,0,0,.2);
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0,0,0,.2);
 }
 </style>
 </head>
@@ -173,12 +206,11 @@ footer a:hover{
     Luxury spray tanning in Colchester, Essex — delivering flawless, natural-looking glow
     personalised to every skin tone for everyday wear, events, holidays, and competitions.
   </p>
-  <a class="cta" href="#">Book via Instagram</a>
+  <a class="cta" href="https://www.instagram.com/looklushwithliv/">Book via Instagram</a>
 </header>
 
 <!-- About & Services -->
 <section class="grid">
-
   <div class="card">
     <h2>Meet Olivia</h2>
     <p>
@@ -204,7 +236,6 @@ footer a:hover{
       <li>Highly rated by happy clients</li>
     </ul>
   </div>
-
 </section>
 
 <!-- Client Results -->
@@ -216,15 +247,15 @@ footer a:hover{
   </p>
 
   <div class="results-grid">
-    <img src="images/tanning1.png">
-    <img src="images/tanning2.png">
-    <img src="images/tanning3.png">
-    <img src="images/tanning4.png">
-    <img src="images/tanning5.png">
-    <img src="images/tanning6.png">
-    <img src="images/tanning7.png">
-    <img src="images/tanning8.png">
-    <img src="images/tanning9.png">
+    <img src="images/tanning1.png" alt="">
+    <img src="images/tanning2.png" alt="">
+    <img src="images/tanning3.png" alt="">
+    <img src="images/tanning4.png" alt="">
+    <img src="images/tanning5.png" alt="">
+    <img src="images/tanning6.png" alt="">
+    <img src="images/tanning7.png" alt="">
+    <img src="images/tanning8.png" alt="">
+    <img src="images/tanning9.png" alt="">
   </div>
 </section>
 
@@ -233,7 +264,7 @@ footer a:hover{
   <h2>Client Reviews</h2>
   <p>
     Real feedback from happy clients who love their glow.
-    These are genuine messages from customers after their tans.
+    Click the images to view them fullscreen.
   </p>
 
   <div class="results-grid">
@@ -245,11 +276,43 @@ footer a:hover{
   </div>
 </section>
 
+<!-- Lightbox Overlay -->
+<div id="lightbox">
+  <span id="lightbox-close">&times;</span>
+  <img id="lightbox-img" src="">
+</div>
+
 <footer>
   <h2>Book Your Glow Today</h2>
   <p>Luxury spray tanning in Colchester, Essex</p>
-  <a href="#">Message on Instagram</a>
+  <a href="https://www.instagram.com/looklushwithliv/">Message on Instagram</a>
 </footer>
+
+<script>
+// Lightbox functionality
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxClose = document.getElementById('lightbox-close');
+const reviewImages = document.querySelectorAll('.results-grid img');
+
+reviewImages.forEach(img=>{
+  img.addEventListener('click', ()=>{
+    lightbox.style.display = 'flex';
+    lightboxImg.src = img.src;
+  });
+});
+
+lightboxClose.addEventListener('click', ()=>{
+  lightbox.style.display = 'none';
+});
+
+// Close if user clicks outside image
+lightbox.addEventListener('click', (e)=>{
+  if(e.target === lightbox){
+    lightbox.style.display = 'none';
+  }
+});
+</script>
 
 </body>
 </html>
